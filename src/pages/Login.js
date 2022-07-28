@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BsCashCoin, BsWallet2 } from 'react-icons/bs';
 import { connect } from 'react-redux';
-import { getUserEmail } from '../redux/actions';
+import { getUserEmail } from '../redux/actions/loginActions';
+import Logo from '../components/Logo';
 
 class Login extends React.Component {
   constructor() {
@@ -39,12 +39,7 @@ class Login extends React.Component {
     const { email, password } = this.state;
     return (
       <div className="login-container">
-        <h1>
-          <BsWallet2 />
-          <BsCashCoin />
-          {' '}
-          TrybeWallet
-        </h1>
+        <Logo className="large-logo" />
         <form className="login-form">
           <input
             type="email"
@@ -76,15 +71,15 @@ class Login extends React.Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  registerEmail: (email) => dispatch(getUserEmail(email)),
+});
+
 Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
   registerEmail: PropTypes.func.isRequired,
 };
-
-const mapDispatchToProps = (dispatch) => ({
-  registerEmail: (email) => dispatch(getUserEmail(email)),
-});
 
 export default connect(null, mapDispatchToProps)(Login);
