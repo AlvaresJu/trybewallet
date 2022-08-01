@@ -32,8 +32,9 @@ class WalletForm extends Component {
     event.preventDefault();
     const { value, description, currency, method, tag } = this.state;
     const { expenses, addExpenseItem } = this.props;
+    const id = (expenses.length > 0) ? (expenses[expenses.length - 1].id + 1) : 0;
     const expenseData = {
-      id: expenses.length,
+      id,
       value,
       description,
       currency,

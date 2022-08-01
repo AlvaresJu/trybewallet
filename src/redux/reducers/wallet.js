@@ -4,6 +4,7 @@ import {
   FAILED_REQUEST,
   GET_CURRENCIES,
   ADD_EXPENSE,
+  REMOVE_EXPENSE,
 } from '../actions/walletActions';
 
 const INITIAL_STATE = {
@@ -29,6 +30,12 @@ const wallet = (state = INITIAL_STATE, action) => {
       loading: false,
       expenses: [...state.expenses, action.expense],
       totalExpense: (state.totalExpense + action.valueBRL) };
+  case REMOVE_EXPENSE:
+    return { ...state,
+      expenses: state.expenses.filter(({ id }) => id !== action.idToRemove),
+      totalExpense:
+        (action.valueToRemove > state.totalExpense) ? 0
+          : (state.totalExpense - action.valueToRemove) };
   default:
     return state;
   }
