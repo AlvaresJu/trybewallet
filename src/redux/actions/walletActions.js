@@ -3,6 +3,7 @@ export const REQUEST_DATA = 'REQUEST_DATA';
 export const FAILED_REQUEST = 'FAILED_REQUEST';
 export const GET_CURRENCIES = 'GET_CURRENCIES';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 
 const requestData = () => ({ type: REQUEST_DATA });
 
@@ -59,3 +60,9 @@ export const fetchDataAndAddExpense = (expenseData) => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const removeExpense = (idToRemove, valueToRemove) => ({
+  type: REMOVE_EXPENSE,
+  idToRemove,
+  valueToRemove,
+});
