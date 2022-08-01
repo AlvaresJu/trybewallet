@@ -5,6 +5,8 @@ import {
   GET_CURRENCIES,
   ADD_EXPENSE,
   REMOVE_EXPENSE,
+  EDIT_EXPENSE,
+  SAVE_EDITED_EXPENSE,
 } from '../actions/walletActions';
 
 const INITIAL_STATE = {
@@ -36,6 +38,24 @@ const wallet = (state = INITIAL_STATE, action) => {
       totalExpense:
         (action.valueToRemove > state.totalExpense) ? 0
           : (state.totalExpense - action.valueToRemove) };
+  case EDIT_EXPENSE:
+    return { ...state, editor: true, idToEdit: action.idToEdit };
+  case SAVE_EDITED_EXPENSE:
+    return { ...state,
+      editor: false,
+      expenses: state.expenses.map((expense) => {
+        if (expense.id !== action.editedData.id) return expense;
+        return {
+          id: expense.id,
+          value: action.editedData.value,
+          description: action.editedData.description,
+          currency: action.editedData.currency,
+          method: action.editedData.method,
+          tag: action.editedData.tag,
+          exchangeRates: expense.exchangeRates,
+        };
+      }),
+      totalExpense: state.totalExpense - action.subValue + action.addValue };
   default:
     return state;
   }

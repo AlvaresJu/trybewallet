@@ -4,6 +4,8 @@ export const FAILED_REQUEST = 'FAILED_REQUEST';
 export const GET_CURRENCIES = 'GET_CURRENCIES';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
+export const SAVE_EDITED_EXPENSE = 'SAVE_EDITED_EXPENSE';
 
 const requestData = () => ({ type: REQUEST_DATA });
 
@@ -65,4 +67,16 @@ export const removeExpense = (idToRemove, valueToRemove) => ({
   type: REMOVE_EXPENSE,
   idToRemove,
   valueToRemove,
+});
+
+export const startEditingExpense = (idToEdit) => ({
+  type: EDIT_EXPENSE,
+  idToEdit,
+});
+
+export const saveEditedExpense = (editedData, subValue, addValue) => ({
+  type: SAVE_EDITED_EXPENSE,
+  editedData,
+  subValue,
+  addValue,
 });
