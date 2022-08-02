@@ -9,22 +9,22 @@ class Login extends React.Component {
     super();
     this.state = {
       email: '',
-      password: '',
+      validEmail: false,
+      validPassword: false,
     };
   }
 
-  handleChange = ({ target }) => {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+  handleEmailChange = ({ target }) => {
+    const { value } = target;
+    const isValidEmail = (/\S+@\S+\.\S+/).test(value);
+    this.setState({ email: value, validEmail: isValidEmail });
   }
 
-  checkValidLogin = (email, password) => {
-    const isValidEmail = (/\S+@\S+\.\S+/).test(email);
+  handlePasswordChange = ({ target }) => {
+    const { value } = target;
     const minLenghtPassword = 6;
-    const isValidPassword = password.length >= minLenghtPassword;
-    return (isValidEmail && isValidPassword);
+    const isValidPassword = value.length >= minLenghtPassword;
+    this.setState({ validPassword: isValidPassword });
   }
 
   handleSubmit = (event) => {
@@ -36,31 +36,28 @@ class Login extends React.Component {
   }
 
   render() {
-    const { email, password } = this.state;
+    const { email, validEmail, validPassword } = this.state;
     return (
       <div className="login-container">
         <Logo className="large-logo" />
         <form className="login-form">
           <input
             type="email"
-            name="email"
             data-testid="email-input"
             placeholder="E-mail"
             value={ email }
-            onChange={ this.handleChange }
+            onChange={ this.handleEmailChange }
           />
           <input
             type="password"
-            name="password"
             data-testid="password-input"
             placeholder="Senha"
-            value={ password }
-            onChange={ this.handleChange }
+            onChange={ this.handlePasswordChange }
           />
           <button
             type="submit"
             data-testid="login-submit-button"
-            disabled={ !this.checkValidLogin(email, password) }
+            disabled={ !(validEmail && validPassword) }
             onClick={ this.handleSubmit }
           >
             Entrar
