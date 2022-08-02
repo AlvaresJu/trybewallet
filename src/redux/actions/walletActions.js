@@ -6,6 +6,7 @@ export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 export const SAVE_EDITED_EXPENSE = 'SAVE_EDITED_EXPENSE';
+export const CHANGE_INPUT = 'CHANGE_INPUT';
 
 const requestData = () => ({ type: REQUEST_DATA });
 
@@ -24,7 +25,6 @@ export const fetchCurrencies = () => async (dispatch) => {
   try {
     const request = await fetch('https://economia.awesomeapi.com.br/json/all');
     const requestResult = await request.json();
-
     if (requestResult.status) {
       throw new Error(`${requestResult.code}: ${requestResult.message}`);
     } else {
@@ -48,7 +48,6 @@ export const fetchDataAndAddExpense = (expenseData) => async (dispatch) => {
   try {
     const request = await fetch('https://economia.awesomeapi.com.br/json/all');
     const requestResult = await request.json();
-
     if (requestResult.status) {
       throw new Error(`${requestResult.code}: ${requestResult.message}`);
     } else {
@@ -69,9 +68,10 @@ export const removeExpense = (idToRemove, valueToRemove) => ({
   valueToRemove,
 });
 
-export const startEditingExpense = (idToEdit) => ({
+export const startEditingExpense = (idToEdit, inputsToEdit) => ({
   type: EDIT_EXPENSE,
   idToEdit,
+  inputsToEdit,
 });
 
 export const saveEditedExpense = (editedData, subValue, addValue) => ({
@@ -79,4 +79,10 @@ export const saveEditedExpense = (editedData, subValue, addValue) => ({
   editedData,
   subValue,
   addValue,
+});
+
+export const handleFormChange = ({ target }) => ({
+  type: CHANGE_INPUT,
+  input: target.id,
+  inputValue: target.value,
 });

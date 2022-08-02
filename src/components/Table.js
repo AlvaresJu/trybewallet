@@ -10,9 +10,11 @@ class Table extends Component {
     removeExpenseItem(id, valueToRemove);
   }
 
-  handleEditExpense = (id) => {
+  handleEditExpense = (expenseToEdit) => {
     const { enableExpenseEditing } = this.props;
-    enableExpenseEditing(id);
+    const { id, value, description, currency, method, tag } = expenseToEdit;
+    const inputsToEdit = { value, description, currency, method, tag };
+    enableExpenseEditing(id, inputsToEdit);
   }
 
   render() {
@@ -34,45 +36,43 @@ class Table extends Component {
           </tr>
         </thead>
         <tbody>
-          {
-            (expenses.length > 0) && expenses.map((expense) => {
-              const { id,
-                value,
-                description,
-                currency,
-                method,
-                tag,
-                exchangeRates } = expense;
-              return (
-                <tr key={ id }>
-                  <td>{description}</td>
-                  <td>{tag}</td>
-                  <td>{method}</td>
-                  <td>{Number(value).toFixed(2)}</td>
-                  <td>{exchangeRates[currency].name}</td>
-                  <td>{Number(exchangeRates[currency].ask).toFixed(2)}</td>
-                  <td>{Number(value * exchangeRates[currency].ask).toFixed(2)}</td>
-                  <td>Real</td>
-                  <td>
-                    <button
-                      type="button"
-                      data-testid="edit-btn"
-                      onClick={ () => this.handleEditExpense(id) }
-                    >
-                      Editar
-                    </button>
-                    <button
-                      type="button"
-                      data-testid="delete-btn"
-                      onClick={ () => this.handleRemoveExpense(expense) }
-                    >
-                      Excluir
-                    </button>
-                  </td>
-                </tr>
-              );
-            })
-          }
+          { (expenses.length > 0) && expenses.map((expense) => {
+            const { id,
+              value,
+              description,
+              currency,
+              method,
+              tag,
+              exchangeRates } = expense;
+            return (
+              <tr key={ id }>
+                <td>{description}</td>
+                <td>{tag}</td>
+                <td>{method}</td>
+                <td>{Number(value).toFixed(2)}</td>
+                <td>{exchangeRates[currency].name}</td>
+                <td>{Number(exchangeRates[currency].ask).toFixed(2)}</td>
+                <td>{Number(value * exchangeRates[currency].ask).toFixed(2)}</td>
+                <td>Real</td>
+                <td>
+                  <button
+                    type="button"
+                    data-testid="edit-btn"
+                    onClick={ () => this.handleEditExpense(expense) }
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
+                    data-testid="delete-btn"
+                    onClick={ () => this.handleRemoveExpense(expense) }
+                  >
+                    Excluir
+                  </button>
+                </td>
+              </tr>
+            );
+          }) }
         </tbody>
       </table>
     );
@@ -86,7 +86,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   removeExpenseItem:
     (idToRemove, valueToRemove) => dispatch(removeExpense(idToRemove, valueToRemove)),
-  enableExpenseEditing: (idToEdit) => dispatch(startEditingExpense(idToEdit)),
+  enableExpenseEditing:
+    (idToEdit, inputsToEdit) => dispatch(startEditingExpense(idToEdit, inputsToEdit)),
 });
 
 Table.propTypes = {
