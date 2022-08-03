@@ -210,3 +210,50 @@ export const mockData = {
     create_date: '2022-05-30 17:47:16',
   },
 };
+
+export const mockFailedData = {
+  status: 404,
+  code: "CoinNotExists",
+  message: "moeda nao encontrada JSON-BRL",
+};
+
+export const mockState = {
+  user: {
+    email: 'xulud@mailinator.com'
+  },
+  wallet: {
+    currencies: mockCurrencies,
+    expenses: [
+      {
+        id: 0,
+        value: '714',
+        description: 'Omnis in dignissimos',
+        currency: 'XRP',
+        method: 'Cartão de crédito',
+        tag: 'Alimentação',
+        exchangeRates: mockData
+      },
+      {
+        id: 1,
+        value: '629',
+        description: 'Ut aperiam aliquip e',
+        currency: 'ETH',
+        method: 'Cartão de crédito',
+        tag: 'Saúde',
+        exchangeRates: mockData
+      }
+    ],
+    editor: false,
+    idToEdit: 0,
+    loading: false,
+    requestError: '',
+    totalExpense: 7203.8809,
+    formData: {
+      value: '',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação'
+    },
+  },
+};
