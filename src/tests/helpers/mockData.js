@@ -1,4 +1,6 @@
-const mockData = {
+export const mockCurrencies = ['USD', 'CAD', 'EUR', 'GBP', 'ARS', 'BTC', 'LTC', 'JPY', 'CHF', 'AUD', 'CNY', 'ILS', 'ETH', 'XRP', 'DOGE'];
+
+export const mockData = {
   USD: {
     code: 'USD',
     codein: 'BRL',
@@ -208,5 +210,3 @@ const mockData = {
     create_date: '2022-05-30 17:47:16',
   },
 };
-
-export default mockData;
