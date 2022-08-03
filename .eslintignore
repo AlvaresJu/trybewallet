@@ -1,4 +1,4 @@
-src/tests/helpers
+src/tests
 src/serviceWorker.js
 cypress
 coverage
