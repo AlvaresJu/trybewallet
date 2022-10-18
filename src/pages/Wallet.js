@@ -2,15 +2,18 @@ import React from 'react';
 import Header from '../components/Header';
 import Table from '../components/Table';
 import WalletForm from '../components/WalletForm';
+import '../styles/wallet.css';
 
 class Wallet extends React.Component {
   render() {
     return (
-      <>
-        <Header />
+      <div className="wallet-content">
         <WalletForm />
-        <Table />
-      </>
+        <div className="header-table">
+          <Header />
+          <Table />
+        </div>
+      </div>
     );
   }
 }

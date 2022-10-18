@@ -1,0 +1,12 @@
+.wallet-content {
+  background-color: rgb(84, 11, 14);
+  display: flex;
+  padding: 50px 55px;
+}
+
+.header-table {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+  width: 100%;
+}

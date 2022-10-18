@@ -5,6 +5,7 @@ import { fetchCurrencies,
   fetchDataAndAddExpense,
   handleFormChange,
   saveEditedExpense } from '../redux/actions/walletActions';
+import '../styles/walletForm.css';
 
 class WalletForm extends Component {
   componentDidMount() {
@@ -35,7 +36,7 @@ class WalletForm extends Component {
     const { value, description, currency, method, tag } = formData;
     if (loading) return <span>Carregando...</span>;
     return (
-      <form>
+      <form className="wallet-form">
         <label htmlFor="value">
           Valor:
           <input

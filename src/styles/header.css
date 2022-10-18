@@ -1,0 +1,41 @@
+header {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  padding: 28px 0;
+}
+
+.medium-logo {
+  color: rgb(33, 70, 80);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.total-expense-container {
+  align-items: center;
+  color: rgb(33, 70, 80);
+  display: flex;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.total-expense-container span {
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.email-container {
+  align-items: center;
+  color: rgb(158, 42, 43);
+  display: flex;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.email-container span {
+  font-size: 16px;
+  margin-left: 8px;
+}

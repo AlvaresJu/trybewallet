@@ -13,7 +13,7 @@
 
 .login-form {
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.863);
+  background-color: white;
   border-radius: 10px;
   box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
   display: flex;
@@ -58,7 +58,7 @@
 
 .login-form button:disabled {
   cursor: wait;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .login-form button:hover {
