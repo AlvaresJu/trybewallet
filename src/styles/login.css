@@ -1,0 +1,76 @@
+.login-container {
+  align-items: center;
+  background-image: url('../images/money-background.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  display: flex;
+  height: 680px;
+  justify-content: center;
+  margin: 20px;
+  width: 100%;
+}
+
+.login-form {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.863);
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 356px;
+  justify-content: center;
+  padding: 60px 95px;
+  width: 525px;
+}
+
+.login-form input {
+  border: 1px solid rgb(84, 11, 14);
+  border-radius: 5px;
+  color: rgb(84, 11, 14);
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  line-height: 14px;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.login-form input:focus {
+  outline: 1px groove #73628a;
+}
+
+.login-form button {
+  background-color: rgb(84, 11, 14);
+  border: 1px solid rgb(84, 11, 14);
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  height: 40px;
+  line-height: 14px;
+  text-align: center;
+  width: 100%;
+}
+
+.login-form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.login-form button:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  filter: brightness(110%);
+}
+
+.large-logo {
+  color: rgb(33, 70, 80);
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+}

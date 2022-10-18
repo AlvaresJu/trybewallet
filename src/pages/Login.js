@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUserEmail } from '../redux/actions/loginActions';
 import Logo from '../components/Logo';
+import '../styles/login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -39,8 +40,8 @@ class Login extends React.Component {
     const { email, validEmail, validPassword } = this.state;
     return (
       <div className="login-container">
-        <Logo className="large-logo" />
         <form className="login-form">
+          <Logo className="large-logo" />
           <input
             type="email"
             data-testid="email-input"
