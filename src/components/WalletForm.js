@@ -37,6 +37,7 @@ class WalletForm extends Component {
     if (loading) return <span>Carregando...</span>;
     return (
       <form className="wallet-form">
+        <h3>Cadastro de Despesa</h3>
         <label htmlFor="value">
           Valor:
           <input
