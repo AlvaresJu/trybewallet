@@ -2,6 +2,7 @@
   "name": "sd-0x-project-trybewallet",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://AlvaresJu.github.io/trybewallet",
   "engines": {
     "node": "16"
   },
@@ -10,6 +11,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "7.2.1",
     "bootstrap": "4.5.2",
+    "gh-pages": "^4.0.0",
     "history": "^5.3.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -29,6 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test-coverage": "react-scripts test --coverage --watchAll=false",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx"
   },
