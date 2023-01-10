@@ -22,21 +22,21 @@ describe('Tests for the delete expense feature in the Wallet Table', () => {
     await waitForElementToBeRemoved(screen.queryByText(/carregando/i));
 
     const tableCells = screen.getAllByRole('cell');
-    const deleteBtns = screen.getAllByRole('button', { name: /excluir/i });
+    const deleteBtns = screen.getAllByTestId('delete-btn');
 
     expect(tableCells[8]).toContainElement(deleteBtns[0]);
     expect(tableCells[17]).toContainElement(deleteBtns[1]);
   });
 
-  test('if the delete button has data-testid="delete-btn"', async () => {
+  test('if the delete button has class="delete-btn"', async () => {
     const options = { initialState: mockState };
     renderWithRedux(<Wallet />, options);
     await waitForElementToBeRemoved(screen.queryByText(/carregando/i));
 
-    const deleteBtns = screen.getAllByRole('button', { name: /excluir/i });
+    const deleteBtns = screen.getAllByTestId('delete-btn');
 
     deleteBtns.forEach((btn) => {
-      expect(btn).toHaveAttribute('data-testid', 'delete-btn');
+      expect(btn).toHaveAttribute('class', 'delete-btn');
     });
   });
 
@@ -54,7 +54,7 @@ describe('Tests for the delete expense feature in the Wallet Table', () => {
       name: /omnis in dignissimos alimentação cartão de crédito 714\.00 xrp\/real/i,
     });
 
-    const deleteBtns = screen.getAllByRole('button', { name: /excluir/i });
+    const deleteBtns = screen.getAllByTestId('delete-btn');
     userEvent.click(deleteBtns[0]);
 
     expect(store.getState().wallet.expenses).toHaveLength(1);
@@ -72,7 +72,7 @@ describe('Tests for the delete expense feature in the Wallet Table', () => {
     const totalExpense = screen.getByTestId('total-field');
     expect(totalExpense).toHaveTextContent('7203.88');
 
-    const deleteBtns = screen.getAllByRole('button', { name: /excluir/i });
+    const deleteBtns = screen.getAllByTestId('delete-btn');
     userEvent.click(deleteBtns[0]);
 
     expect(totalExpense).toHaveTextContent('5825.86');

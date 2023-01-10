@@ -27,21 +27,21 @@ describe('Tests for the edit expense feature in the Wallet Table', () => {
     await waitForElementToBeRemoved(screen.queryByText(/carregando/i));
 
     const tableCells = screen.getAllByRole('cell');
-    const editBtns = screen.getAllByRole('button', { name: /editar/i });
+    const editBtns = screen.getAllByTestId('edit-btn');
 
     expect(tableCells[8]).toContainElement(editBtns[0]);
     expect(tableCells[17]).toContainElement(editBtns[1]);
   });
 
-  test('if the edit button has data-testid="edit-btn"', async () => {
+  test('if the edit button has class="edit-btn"', async () => {
     const options = { initialState: mockState };
     renderWithRedux(<Wallet />, options);
     await waitForElementToBeRemoved(screen.queryByText(/carregando/i));
 
-    const editBtns = screen.getAllByRole('button', { name: /editar/i });
+    const editBtns = screen.getAllByTestId('edit-btn');
 
     editBtns.forEach((btn) => {
-      expect(btn).toHaveAttribute('data-testid', 'edit-btn');
+      expect(btn).toHaveAttribute('class', 'edit-btn');
     });
   });
 
@@ -60,7 +60,7 @@ describe('Tests for the edit expense feature in the Wallet Table', () => {
     expect(cashOption.selected).toBe(true);
     expect(foodOption.selected).toBe(true);
 
-    const editBtns = screen.getAllByRole('button', { name: /editar/i });
+    const editBtns = screen.getAllByTestId('edit-btn');
     userEvent.click(editBtns[0]);
 
     const currencyToEdit = screen.getByRole('option', {
@@ -83,7 +83,7 @@ describe('Tests for the edit expense feature in the Wallet Table', () => {
     const addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     expect(addBtn).toBeInTheDocument();
 
-    const editBtns = screen.getAllByRole('button', { name: /editar/i });
+    const editBtns = screen.getAllByTestId('edit-btn');
     userEvent.click(editBtns[0]);
 
     const editExpenseBtn = screen.getByRole('button', { name: /editar despesa/i });
@@ -97,7 +97,7 @@ describe('Tests for the edit expense feature in the Wallet Table', () => {
     const { store } = renderWithRedux(<Wallet />, options);
     await waitForElementToBeRemoved(screen.queryByText(/carregando/i));
 
-    const editBtns = screen.getAllByRole('button', { name: /editar/i });
+    const editBtns = screen.getAllByTestId('edit-btn');
     userEvent.click(editBtns[0]);
 
     const valueInput = screen.getByTestId(valueInputTesid);
@@ -120,7 +120,7 @@ describe('Tests for the edit expense feature in the Wallet Table', () => {
     const totalExpense = screen.getByTestId('total-field');
     expect(totalExpense).toHaveTextContent('7203.88');
 
-    const editBtns = screen.getAllByRole('button', { name: /editar/i });
+    const editBtns = screen.getAllByTestId('edit-btn');
     userEvent.click(editBtns[0]);
 
     const valueInput = screen.getByTestId(valueInputTesid);

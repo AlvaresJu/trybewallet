@@ -73,7 +73,7 @@ describe('Tests for the save expense feature in the Wallet form', () => {
   test('if by clicking button, the total expense value is properly updated', async () => {
     renderWithRedux(<Wallet />);
 
-    const totalExpense = screen.getByTestId('total-field');
+    let totalExpense = await screen.findByTestId('total-field');
     expect(totalExpense).toHaveTextContent(0.00);
 
     let valueInput = await screen.findByTestId(valueInputTesid);
@@ -83,6 +83,7 @@ describe('Tests for the save expense feature in the Wallet form', () => {
     let addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     userEvent.click(addBtn);
     await screen.findByRole('cell', { name: mockValue1 });
+    totalExpense = await screen.findByTestId('total-field');
     expect(totalExpense).toHaveTextContent(mockTotalExpense1);
 
     valueInput = await screen.findByTestId(valueInputTesid);
@@ -92,6 +93,7 @@ describe('Tests for the save expense feature in the Wallet form', () => {
     addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     userEvent.click(addBtn);
     await screen.findByRole('cell', { name: mockValue2 });
+    totalExpense = await screen.findByTestId('total-field');
     expect(totalExpense).toHaveTextContent(mockTotalExpense2);
   });
 
