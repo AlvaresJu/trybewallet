@@ -8,6 +8,8 @@ export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 export const SAVE_EDITED_EXPENSE = 'SAVE_EDITED_EXPENSE';
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 
+const TIMEOUT = 500;
+
 const requestData = () => ({ type: REQUEST_DATA });
 
 const failedRequest = (requestError) => ({
@@ -29,11 +31,15 @@ export const fetchCurrencies = () => async (dispatch) => {
       throw new Error(`${requestResult.code}: ${requestResult.message}`);
     } else {
       const currencyList = Object.keys(requestResult).filter((type) => type !== 'USDT');
-      dispatch(getCurrencies(currencyList));
+      setTimeout(() => {
+        dispatch(getCurrencies(currencyList));
+      }, TIMEOUT);
     }
   } catch (error) {
-    dispatch(failedRequest(error.message));
-    console.log(error.message);
+    setTimeout(() => {
+      dispatch(failedRequest(error.message));
+      console.log(error.message);
+    }, TIMEOUT);
   }
 };
 
@@ -54,11 +60,15 @@ export const fetchDataAndAddExpense = (expenseData) => async (dispatch) => {
       const expense = { ...expenseData, exchangeRates: requestResult };
       const { value, currency } = expenseData;
       const valueBRL = value * requestResult[currency].ask;
-      dispatch(addExpense(expense, valueBRL));
+      setTimeout(() => {
+        dispatch(addExpense(expense, valueBRL));
+      }, TIMEOUT);
     }
   } catch (error) {
-    dispatch(failedRequest(error.message));
-    console.log(error.message);
+    setTimeout(() => {
+      dispatch(failedRequest(error.message));
+      console.log(error.message);
+    }, TIMEOUT);
   }
 };
 

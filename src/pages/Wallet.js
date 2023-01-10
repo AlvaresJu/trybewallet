@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Table from '../components/Table';
 import WalletForm from '../components/WalletForm';
 import '../styles/wallet.css';
+import Loading from '../components/Loading';
 
 class Wallet extends React.Component {
   componentDidMount() {
@@ -15,7 +16,7 @@ class Wallet extends React.Component {
 
   render() {
     const { loading } = this.props;
-    if (loading) return <span>Carregando...</span>;
+    if (loading) return <Loading />;
     return (
       <div className="wallet-content">
         <WalletForm />
