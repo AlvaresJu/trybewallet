@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCurrencies,
-  fetchDataAndAddExpense,
+import { fetchDataAndAddExpense,
   handleFormChange,
   saveEditedExpense } from '../redux/actions/walletActions';
 import '../styles/walletForm.css';
 
 class WalletForm extends Component {
-  componentDidMount() {
-    const { getCurrencies } = this.props;
-    getCurrencies();
-  }
-
   handleAddExpense = (event) => {
     event.preventDefault();
     const { expenses, addExpenseItem, formData } = this.props;
@@ -32,9 +26,8 @@ class WalletForm extends Component {
   }
 
   render() {
-    const { currencies, loading, editor, formData, handleChange } = this.props;
+    const { currencies, editor, formData, handleChange } = this.props;
     const { value, description, currency, method, tag } = formData;
-    if (loading) return <span>Carregando...</span>;
     return (
       <form className="wallet-form">
         <h3>Cadastro de Despesa</h3>
@@ -117,7 +110,6 @@ class WalletForm extends Component {
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
-  loading: state.wallet.loading,
   expenses: state.wallet.expenses,
   editor: state.wallet.editor,
   idToEdit: state.wallet.idToEdit,
@@ -125,7 +117,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getCurrencies: () => dispatch(fetchCurrencies()),
   addExpenseItem: (expense) => dispatch(fetchDataAndAddExpense(expense)),
   editExpenseItem: (editedData, subValue, addValue) => dispatch(
     saveEditedExpense(editedData, subValue, addValue),
@@ -135,12 +126,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 WalletForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
-  loading: PropTypes.bool.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
   editor: PropTypes.bool.isRequired,
   idToEdit: PropTypes.number.isRequired,
   formData: PropTypes.objectOf(PropTypes.string).isRequired,
-  getCurrencies: PropTypes.func.isRequired,
   addExpenseItem: PropTypes.func.isRequired,
   editExpenseItem: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
