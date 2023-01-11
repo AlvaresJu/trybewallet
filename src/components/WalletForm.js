@@ -95,11 +95,19 @@ class WalletForm extends Component {
           />
         </label>
         { editor ? (
-          <button type="submit" onClick={ this.handleSaveEdited }>
+          <button
+            type="submit"
+            onClick={ this.handleSaveEdited }
+            disabled={ !(value && description) }
+          >
             Editar despesa
           </button>
         ) : (
-          <button type="submit" onClick={ this.handleAddExpense }>
+          <button
+            type="submit"
+            onClick={ this.handleAddExpense }
+            disabled={ !(value && description) }
+          >
             Adicionar despesa
           </button>
         ) }
