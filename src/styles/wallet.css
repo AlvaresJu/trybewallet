@@ -1,5 +1,4 @@
 .wallet-content {
-  background-color: rgb(84, 11, 14);
   display: flex;
   padding: 30px;
 }
@@ -8,5 +7,6 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+  height: 680px;
   width: 80%;
 }

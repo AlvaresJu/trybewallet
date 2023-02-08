@@ -1,7 +1,10 @@
 header {
+  align-items: center;
   background-color: white;
   border-radius: 10px;
   display: flex;
+  flex-wrap: wrap;
+  height: 15%;
   justify-content: space-around;
   padding: 20px 0;
 }

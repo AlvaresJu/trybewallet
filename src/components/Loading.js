@@ -8,7 +8,7 @@ class Loading extends Component {
       <div className="loading-content">
         <ReactLoading
           type="spin"
-          color="#540b0e"
+          color="#ffffff"
           height={ 70 }
           width={ 110 }
           className="loading-icon"
