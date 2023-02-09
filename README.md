@@ -4,6 +4,7 @@
 
 ### Link da página do projeto: [https://alvaresju.github.io/trybewallet/](https://alvaresju.github.io/trybewallet/)
 
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary><h2><strong>Sumário</strong></h2></summary>
@@ -19,16 +20,17 @@
     <li>
       <a href="#para-iniciar-a-aplicação">Para Iniciar a Aplicação</a>
       <ul>
-        <li><a href="#pre-requisitos">Pré-requisitos</a></li>
-        <li><a href="#clonando-o-repositorio">Clonando o Repositório</a></li>
-        <li><a href="#instalando-dependencias">Instalando Dependências</a></li>
-        <li><a href="#executando-a-aplicacao">Executando a Aplicação</a></li>
-        <li><a href="#executando-testes-e-analise-de-cobertura">Executando testes e análise de cobertura</a></li>
+        <li><a href="#pré-requisitos">Pré-requisitos</a></li>
+        <li><a href="#clonando-o-repositório">Clonando o Repositório</a></li>
+        <li><a href="#instalando-dependências">Instalando Dependências</a></li>
+        <li><a href="#executando-a-aplicação">Executando a Aplicação</a></li>
+        <li><a href="#executando-testes-e-análise-de-cobertura">Executando Testes e Análise de Cobertura</a></li>
       </ul>
     </li>
-    <li><a href="#contribuicoes-e-autorias">Contribuições e Autorias</a></li>
+    <li><a href="#contribuições-e-autorias">Contribuições e Autorias</a></li>
   </ol>
 </details>
+
 
 # Sobre o Projeto
   O projeto TrybeWallet é uma aplicação web front-end para uma carteira digital de controle de gastos com conversor de moedas, conssumindo dados da [API de Cotações do awesomeapi](https://docs.awesomeapi.com.br/api-de-moedas) para realizar a busca de câmbio de moedas.
@@ -52,19 +54,20 @@
   * [![Testing-Library][RTL-img]][RTL-url]
 
   #### Linguagens:
-  * [![JavaScript - ES6][JavaScript]][JavaScript-url]
-  * [![CSS3][CSS3]][CSS3-url]
-  * [![HTML5][HTML5]][HTML5-url]
+  * [![JavaScript - ES6][JavaScript-img]][JavaScript-url]
+  * [![CSS3][CSS3-img]][CSS3-url]
+  * [![HTML5][HTML5-img]][HTML5-url]
 
 ## Funcionalidades Implementadas
 
   [![TrybeWallet Gif][product-gif]](https://alvaresju.github.io/trybewallet/)
 
   - Login com identificação da pessoa usuária (email e senha);
-  - Adicionar e editar um gasto (inserção do valor, descrição, seleção da moeda do gasto, métodod de pagamento e categoria da despesa);
-  - Visualização de lista de gastos cadastrados (inclui a cotação da moeda selecionada no momento de cadastro do gasto e converção para real - BRL);
-  - Visualizar o total de despesas convertido para real (BRL);
-  - Remover gasto da lista;
+  - Adicionar e editar um gasto (com inserção do valor e descrição, seleção da moeda do gasto, do método de pagamento e da categoria da despesa);
+  - Visualizar lista de gastos cadastrados (inclui a cotação da moeda no momento de cadastro do gasto e converção para real - BRL);
+  - Visualizar o total de despesas, convertido para real (BRL);
+  - Remover gasto da lista.
+
 
 # Para Iniciar a Aplicação
   Para rodar localmente é necessário garantir o cumprimento dos pré-requisitos, fazer uma cópia e rodar as instruções conforme a seguir:
@@ -74,18 +77,18 @@
 
 ## Clonando o Repositório
   ```bash
-    git clone git@github.com:AlvaresJu/trybetunes-project.git
+    git clone https://github.com/AlvaresJu/trybewallet.git
   ```
 ## Instalando Dependências
   ```bash
-    cd trybetunes-project/
+    cd trybewallet/
     npm install
   ``` 
 ## Executando a Aplicação
   ```bash
     npm start
   ```
-## Executando testes e análise de cobertura
+## Executando Testes e Análise de Cobertura
   ```bash
     npm test
     npm run test-coverage
@@ -95,10 +98,10 @@
   Como descrito, este projeto foi proposto pela [Trybe](https://www.betrybe.com/) e desenvolvido por _[Juliana Álvares](https://www.linkedin.com/in/juliana-%C3%A1lvares-246872112/)_ durante o curso de Desenvolvimento Web realizado. Por isso, foram disponibilizados pela Trybe alguns arquivos base de configurações e auxiliares ao desenvolvimento do projeto. Segue especificação de autoria dos principais documentos:
   
   Arquivos/diretórios desenvolvidos pela autora do projeto (Juliana Álvares):
-  > todos os arquivos da pasta /src
+  > /src/**
   
   Arquivos/diretórios desenvolvidos pela Trybe:
-  > eslintrc.json , stylelintrc.json , package.json , package-lock.json, estrutura geral da pasta /src
+  > eslintrc.json , stylelintrc.json , package.json , package-lock.json, estrutura geral da pasta: /src
 
   
 <!-- MARKDOWN LINKS & IMAGES -->
