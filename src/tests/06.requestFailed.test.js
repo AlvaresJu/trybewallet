@@ -7,6 +7,8 @@ import { mockFailedData, mockCurrencies } from './helpers/mockData';
 
 describe('Tests of API requests failure', () => {
   const mockError = 'CoinNotExists: moeda nao encontrada JSON-BRL';
+  const mockValue = '715.00';
+  const mockDescription = 'Despesa teste';
 
   beforeEach(() => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
@@ -37,6 +39,11 @@ describe('Tests of API requests failure', () => {
   test('a failed request by adding a expense', async () => {
     const consoleSpy = jest.spyOn(console, 'log');
     const { store } = renderWithRedux(<Wallet />);
+
+    const valueInput = await screen.findByTestId('value-input');
+    userEvent.type(valueInput, mockValue);
+    const descriptionInput = await screen.findByTestId('description-input');
+    userEvent.type(descriptionInput, mockDescription);
 
     const addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     userEvent.click(addBtn);

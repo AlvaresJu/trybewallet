@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
+import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Wallet from '../pages/Wallet';
 import { renderWithRedux } from './helpers/renderWith';
@@ -38,11 +38,21 @@ describe('Tests for the save expense feature in the Wallet form', () => {
 
     expect(global.fetch).toBeCalledTimes(1);
 
+    let valueInput = await screen.findByTestId(valueInputTesid);
+    userEvent.type(valueInput, mockValue1);
+    let descriptionInput = await screen.findByTestId('description-input');
+    userEvent.type(descriptionInput, mockDescription);
+
     let addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     userEvent.click(addBtn);
 
     expect(global.fetch).toBeCalledWith('https://economia.awesomeapi.com.br/json/all');
     expect(global.fetch).toBeCalledTimes(2);
+
+    valueInput = await screen.findByTestId(valueInputTesid);
+    userEvent.type(valueInput, mockValue2);
+    descriptionInput = await screen.findByTestId('description-input');
+    userEvent.type(descriptionInput, mockDescription);
 
     addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     userEvent.click(addBtn);
@@ -55,6 +65,8 @@ describe('Tests for the save expense feature in the Wallet form', () => {
 
     let valueInput = await screen.findByTestId(valueInputTesid);
     userEvent.type(valueInput, mockValue1);
+    let descriptionInput = await screen.findByTestId('description-input');
+    userEvent.type(descriptionInput, mockDescription);
     let addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     userEvent.click(addBtn);
     await screen.findByRole('cell', { name: mockValue1 });
@@ -63,6 +75,8 @@ describe('Tests for the save expense feature in the Wallet form', () => {
 
     valueInput = await screen.findByTestId(valueInputTesid);
     userEvent.type(valueInput, mockValue2);
+    descriptionInput = await screen.findByTestId('description-input');
+    userEvent.type(descriptionInput, mockDescription);
     addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     userEvent.click(addBtn);
     await screen.findByRole('cell', { name: mockValue2 });
@@ -80,6 +94,8 @@ describe('Tests for the save expense feature in the Wallet form', () => {
     userEvent.type(valueInput, mockValue1);
     let currencyInput = await screen.findByTestId('currency-input');
     userEvent.selectOptions(currencyInput, [mockCurrency1]);
+    let descriptionInput = await screen.findByTestId('description-input');
+    userEvent.type(descriptionInput, mockDescription);
     let addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     userEvent.click(addBtn);
     await screen.findByRole('cell', { name: mockValue1 });
@@ -90,6 +106,8 @@ describe('Tests for the save expense feature in the Wallet form', () => {
     userEvent.type(valueInput, mockValue2);
     currencyInput = await screen.findByTestId('currency-input');
     userEvent.selectOptions(currencyInput, [mockCurrency2]);
+    descriptionInput = await screen.findByTestId('description-input');
+    userEvent.type(descriptionInput, mockDescription);
     addBtn = await screen.findByRole('button', { name: /adicionar despesa/i });
     userEvent.click(addBtn);
     await screen.findByRole('cell', { name: mockValue2 });
