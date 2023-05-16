@@ -77,7 +77,7 @@
 
 ## Clonando o Repositório
   ```bash
-    git clone https://github.com/AlvaresJu/trybewallet.git
+    git clone git@github.com:AlvaresJu/trybewallet.git
   ```
 ## Instalando Dependências
   ```bash
