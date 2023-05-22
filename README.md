@@ -62,9 +62,9 @@
 
   [![TrybeWallet Gif][product-gif]](https://alvaresju.github.io/trybewallet/)
 
-  - Login com identificação da pessoa usuária (email e senha);
+  - Login com identificação da pessoa usuária (e-mail e senha);
   - Adicionar e editar um gasto (com inserção do valor e descrição, seleção da moeda do gasto, do método de pagamento e da categoria da despesa);
-  - Visualizar lista de gastos cadastrados (inclui a cotação da moeda no momento de cadastro do gasto e converção para real - BRL);
+  - Visualizar lista de gastos cadastrados (inclui a cotação da moeda no momento de cadastro do gasto e conversão para real - BRL);
   - Visualizar o total de despesas, convertido para real (BRL);
   - Remover gasto da lista.
 
