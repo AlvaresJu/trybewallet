@@ -33,7 +33,7 @@
 
 
 # Sobre o Projeto
-  O projeto TrybeWallet é uma aplicação web front-end para uma carteira digital de controle de gastos com conversor de moedas, conssumindo dados da [API de Cotações do awesomeapi](https://docs.awesomeapi.com.br/api-de-moedas) para realizar a busca de câmbio de moedas.
+  O projeto TrybeWallet é uma aplicação web front-end para uma carteira digital de controle de gastos com conversor de moedas, consumindo dados da [API de Cotações do awesomeapi](https://docs.awesomeapi.com.br/api-de-moedas) para realizar a busca de câmbio de moedas.
 
 ## Contexto
   Esse projeto foi desenvolvido por _[Juliana Álvares](https://www.linkedin.com/in/juliana-%C3%A1lvares-246872112/)_, como parte do processo de aprendizado do Módulo de Front-end, do curso de Desenvolvimento Web da [Trybe](https://www.betrybe.com/) :rocket:
