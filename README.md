@@ -101,7 +101,7 @@
   > /src/**
   
   Arquivos/diretórios desenvolvidos pela Trybe:
-  > eslintrc.json , stylelintrc.json , package.json , package-lock.json, estrutura geral da pasta: /src
+  > eslintrc.json , stylelintrc.json , package.json , package-lock.json
 
   
 <!-- MARKDOWN LINKS & IMAGES -->
